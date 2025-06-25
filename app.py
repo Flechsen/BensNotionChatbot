@@ -5,13 +5,22 @@ import streamlit as st
 from utils import load_chain
 
 # Custom image for the app icon and the assistant's avatar
-company_logo = 'https://en.wikipedia.org/wiki/Center_for_Digital_Technology_and_Management#/media/File:CDTM_Logo.jpg'
+company_logo = 'https://upload.wikimedia.org/wikipedia/commons/3/38/161130_CDTM_Logo_blau.svg'
+
 
 # Configure Streamlit page
 st.set_page_config(
     page_title="CDTM Assistant",
     page_icon=company_logo
 )
+
+
+################## Start Temp
+avatar_url = 'https://upload.wikimedia.org/wikipedia/commons/3/38/161130_CDTM_Logo_blau.svg'
+st.image(avatar_url, width=80)  # controls size exactly
+################## End Temp
+
+
 
 # Initialize LLM chain in session_state
 if 'chain' not in st.session_state:
@@ -22,6 +31,17 @@ if 'messages' not in st.session_state:
     # Start with first message from assistant
     st.session_state['messages'] = [{"role": "assistant", 
                                   "content": "Hi there! I am CDTM's AI Assistant. How can I help you today?"}]
+
+# Benedikt: resizing the avatar logo of CTDM
+# from PIL import Image
+# import requests
+# from io import BytesIO
+# url = "https://upload.wikimedia.org/wikipedia/commons/e/e3/CDTM_Logo.jpg"
+# response = requests.get(url)
+# logo = Image.open(BytesIO(response.content))
+# resized_logo = logo.resize((32, 32))  # Adjust size as needed
+# company_logo = resized_logo
+
 
 # Display chat messages from history on app rerun
 # Custom avatar for the assistant, default avatar for user

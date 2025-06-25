@@ -3,4 +3,8 @@
 openai
 langchain
 faiss-cpu
+# faiss-cpu @ https://github.com/facebookresearch/faiss/releases/download/v1.7.4/faiss_cpu-1.7.4-cp310-cp310-manylinux2014_x86_64.whl
 tiktoken
+langchain_community
+streamlit-chitchat
+
