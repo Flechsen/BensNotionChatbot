@@ -31,15 +31,23 @@ def load_chain():
   retriever = vector_store.as_retriever(search_kwargs={"k": 3})
   
   # Create memory 'chat_history' 
-  memory = ConversationBufferWindowMemory(k=3,memory_key="chat_history")
+  # memory = ConversationBufferWindowMemory(k=3,memory_key="chat_history")
+  
+  memory = ConversationBufferWindowMemory(
+    k=3,
+    memory_key="chat_history",
+    return_messages=True,         # important when using ChatOpenAI
+    input_key="question",         # matches input of the chain
+    output_key="answer"           # ✅ tell memory to expect this output
+)
   
   # Create system prompt
   template = """
-    You are an AI assistant for answering questions about the Blendle Employee Handbook.
+    You are an AI assistant for answering questions about the CDTM.
     You are given the following extracted parts of a long document and a question. Provide a conversational answer.
     If you don't know the answer, just say 'Sorry, I don't know ... 😔. 
     Don't try to make up an answer.
-    If the question is not about the Blendle Employee Handbook, politely inform them that you are tuned to only answer questions about the Blendle Employee Handbook.
+    If the question is not about the CDTM, politely inform them that you are tuned to only answer questions about the CDTM.
     
     {context}
     Question: {question}
@@ -50,6 +58,8 @@ def load_chain():
                                               retriever=retriever, 
                                               memory=memory, 
                                               get_chat_history=lambda h : h,
+                                              return_source_documents=True,
+                                              output_key="answer",
                                               verbose=True)
   
   # Add systemp prompt to chain
