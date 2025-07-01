@@ -107,7 +107,7 @@ if query := st.chat_input("Ask me anything"):
                 unique_sources.add(clean_name)
 
             for i, source in enumerate(sorted(unique_sources), 1):
-                st.markdown(f"**Source {i}:** {source}")
+                st.markdown(f"**Source {i}:** *{source}* Notion page")
 
 ############################################################################## 
 ################################# Benedikt ################################### 
