@@ -1,7 +1,6 @@
 # Notion RAG Chatbot
-**Brief Description:**
 
-## 🚀 Overview:
+## 🤖 Overview:
 - Vector Search: Uses FAISS for similarity search across Notion knowledge base
 - Frontend Streamlit
 - Deployment on Streamlit Cloud (free of charge)
