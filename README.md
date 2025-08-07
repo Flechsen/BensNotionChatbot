@@ -20,16 +20,13 @@
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/Flechsen/xxxxxxxxxx
-   cd xxxxx
+   git clone https://github.com/Flechsen/BensNotionChatbot.git
+   cd BensNotionChatbot
    ```
 
 2. **Create a virtual environment**
    ```bash
    python -m venv venv
-   
-   # On Windows
-   venv\Scripts\activate
    
    # On macOS/Linux
    source venv/bin/activate
