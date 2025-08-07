@@ -19,9 +19,9 @@
 
 2. **Create a virtual environment**
    ```bash
+   (for AppleOS)
    python -m venv venv
    
-   # On macOS/Linux
    source venv/bin/activate
    ```
 
@@ -48,11 +48,11 @@ notion-chatbot/
 │
 ├── faiss_index/              # Vector database storage
 │
-├── notion_content/           # Your exported Notion content
+├── notion_content/           # our exported Notion content
 │
-├── app.py                    # Streamlit chat application
-├── ingest.py                 # Convert Notion content to vectors
-├── utils.py                  # Conversational chain utilities
+├── app.py                    # Streamlit application
+├── ingest.py                 # Script to convert Notion content to vectors
+├── utils.py                  # Utilities
 ├── requirements.txt          # Python dependencies
 └── .gitignore               # Git ignore file
 ```
@@ -61,7 +61,7 @@ notion-chatbot/
 
 ### Step 1: Export Your Notion Content
 
-1. Navigate to your Notion page
+1. Navigate to CDTM Notion pages
 2. Click the three dots (⋯) in the top-right corner
 3. Select **Export**
 4. Choose **Markdown & CSV** format
@@ -71,7 +71,7 @@ notion-chatbot/
 
 ### Step 2: Create Vector Database
 
-Run the ingestion script to convert your Notion content into searchable vectors:
+Run the ingestion script to convert our Notion content into searchable vectors:
 
 ```bash
 python ingest.py
@@ -97,9 +97,9 @@ Your chatbot will be available at `http://localhost:8501`
 
 ### Deploy to Streamlit Cloud
 
-1. Push your code to GitHub (ensure `.streamlit/secrets.toml` is in `.gitignore`)
+1. Push code to GitHub (ensure `.streamlit/secrets.toml` is in `.gitignore`)
 2. Go to [share.streamlit.io](https://share.streamlit.io)
-3. Connect your GitHub repository
+3. Connect GitHub repository
 4. In **Advanced settings**, add your OpenAI API key:
    ```
    OPENAI_API_KEY = 'sk-your-api-key-here'
@@ -121,7 +121,7 @@ Edit the template in `utils.py` to change how the chatbot responds:
 
 ```python
 template = """
-You are an AI assistant for answering questions about [Your Content].
+You are an AI assistant for answering questions about programme management topics at the CDTM [Your Content].
 ...
 """
 ```
