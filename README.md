@@ -2,10 +2,10 @@
 **Brief Description:**
 
 **🚀 Overview:**
-- **Vector Search**: Uses FAISS for similarity search across Notion knowledge base
-- **Frontend Streamlit**
-- **Deployment on Streamlit Cloud** (free of charge)
-- **URL** of deployed application is then embedded in Notion page as an iframe
+- Vector Search: Uses FAISS for similarity search across Notion knowledge base
+- Frontend Streamlit
+- Deployment on Streamlit Cloud (free of charge)
+- URL of deployed application is then embedded in Notion page as an iframe
 
 **Before startup**
 1. Re-run embedding/vectorization pipeline for new information: "python ingest.py" (locally)
